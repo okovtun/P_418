@@ -1,5 +1,5 @@
-https://github.com/okovtun/P_418.git
+п»їhttps://github.com/okovtun/P_418.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
-1. Выучить теорию;
+1. Р’С‹СѓС‡РёС‚СЊ С‚РµРѕСЂРёСЋ;
