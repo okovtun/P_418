@@ -8,6 +8,8 @@ void main()
 	cout << "Привет Мир!";
 	//Escape-последовательности
 	cout << "C:\\Windows\\System32\\drivers";
+	char str[]="-1 200";
+	for (int i = 0; i < 5; i++)cout << (int)str[i] << endl;
 }
 
 //Ctrl+F7 - Компиляция
