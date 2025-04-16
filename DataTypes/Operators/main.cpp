@@ -1,9 +1,16 @@
 ﻿#include<iostream>
 using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 //#define ARITHMETICAL_OPERATORS//1)
 //#define ASSIGNMENT_OPERATOR	//2)Оператор присваивания
-#define INCREMENT_DECREMENT		//3) Increment/Decrement(++/--)
+//#define INCREMENT_DECREMENT	//3) Increment/Decrement(++/--)
+//#define COMPOUND_ASSIGNMENTS	//4) Составные присваивания
+#define COMPARISON_OPERATORS	//5) Операторы сравнения
+#define LOGICAL_OPERATORS		//6) Логические операторы
+//#define TASK
 
 void main()
 {
@@ -53,5 +60,30 @@ void main()
 	cout << i << endl;	//1
 	cout << j << endl;	//0
 #endif // INCREMENT_DECREMENT
+
+#ifdef COMPOUND_ASSIGNMENTS
+	int a = 2;
+	int b = 3;
+
+	a += b;			//a = a + b;	//Add-assign (Оператор "прибавить") - к переменной слева прибавляет значение переменной справа.
+									//Сложить два числа, и результат записать в операнд слева
+
+	a -= b;			//a = a - b;	//Оператор "отнять"
+	a *= b;			//a = a * b;	//
+	a /= b;			//a = a / b;
+
+
+	cout << a << endl;
+
+#endif // COMPOUND_ASSIGNMENTS
+
+	true
+
+#ifdef TASK
+	int i = 3;
+	i = i++ + 1 + ++i * 2;
+	cout << i << endl;
+#endif // TASK
+
 
 }
