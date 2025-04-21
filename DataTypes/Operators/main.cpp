@@ -8,9 +8,9 @@ using std::endl;
 //#define ASSIGNMENT_OPERATOR	//2)Оператор присваивания
 //#define INCREMENT_DECREMENT	//3) Increment/Decrement(++/--)
 //#define COMPOUND_ASSIGNMENTS	//4) Составные присваивания
-#define COMPARISON_OPERATORS	//5) Операторы сравнения
-#define LOGICAL_OPERATORS		//6) Логические операторы
-//#define TASK
+//#define COMPARISON_OPERATORS	//5) Операторы сравнения
+//#define LOGICAL_OPERATORS		//6) Логические операторы
+#define TASK
 
 void main()
 {
@@ -77,11 +77,11 @@ void main()
 
 #endif // COMPOUND_ASSIGNMENTS
 
-	true
+	true;
 
 #ifdef TASK
 	int i = 3;
-	i = i++ + 1 + ++i * 2;
+	i += i++ + 1 + (++i *= 2);
 	cout << i << endl;
 #endif // TASK
 
