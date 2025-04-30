@@ -2,6 +2,9 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+1. Shooter должен быть регистронезависимым, и кроме WASD должен реагировать на клавиши курсора (стрелки)
+
+DONE:
 В Solution 'ControlStructures' добавить проект 'Shooter', и в этом проекте,
 программа должна выводить на экран действия пользователя, в зависимости от нажатой клавиши:
 	w - вперед
