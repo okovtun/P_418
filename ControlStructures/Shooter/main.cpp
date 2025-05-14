@@ -12,13 +12,14 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "");
+		cout << true << endl;
 	cout << "Shooter" << endl;
 	char key;
 	do
 	{
 		key = _getch();
 		//cout << (int)key << "\t" << key << endl;
-		if (key == 'w' || key == 'W' || key == UpArrow)
+		/*if (key == 'w' || key == 'W' || key == UpArrow)
 		{
 			cout << "Вперед" << endl;
 		}
@@ -45,6 +46,25 @@ void main()
 		else
 		{
 			if(key != -32 && key != Escape)cout << "Error" << endl;
+		}*/
+
+		switch (key)
+		{
+		case 'w':
+		case 'W':
+		case UpArrow: cout << "Вперед" << endl; break;
+		case 's':
+		case 'S':
+		case DownArrow: cout << "Назад" << endl; break;
+		case 'a':
+		case 'A':
+		case LeftArrow: cout << "Влево" << endl; break;
+		case 'd':
+		case 'D':
+		case RightArrow: cout << "Вправо" << endl; break;
+		case Escape:cout << "Выход" << endl;
+		case -32:break;
+		default: cout << "Error" << endl;
 		}
 	} while (key != Escape);
 }
