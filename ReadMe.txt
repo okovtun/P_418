@@ -2,6 +2,9 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+1. 
+
+TODO:
 В Solution 'ControlStructures' добавить проект 'Geometry' и в нем решить следующие задачи:
 Пользователь вводит размер фигуры, и программа выводит на экран следующие фигуры:
 
