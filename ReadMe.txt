@@ -2,7 +2,11 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
-1. 
+1. В Solution 'ControlStructures' добавить проект 'ChessBoard' и в нем:
+	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/ChessBoard.jpg
+2. В Solution 'ControlStructures' добавить проект 'HardChess' и в нем:
+	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/HardChess.jpg
+
 
 TODO:
 В Solution 'ControlStructures' добавить проект 'Geometry' и в нем решить следующие задачи:
