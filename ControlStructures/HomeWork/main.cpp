@@ -1,44 +1,35 @@
 #include <iostream>
-#include <conio.h>
+#include <iomanip> 
+
 using namespace std;
 
-int main()
-{
-	setlocale(LC_ALL, "russian");
-	cout << "Нажмите клавишу: ";
-	char key;
+namespace ChessBoard {
 
-	do
-	{
-		key = _getch();
-		if (key == 'w')
-		{
-			cout << "Вперёд!" << endl;
+	void printChessBoard(int size) {
+
+		for (int row = 0; row < size; ++row) {
+			for (int col = 0; col < size; ++col) {
+				if ((row + col) % 2 == 0) {
+					cout << "* ";
+				}
+				else {
+					cout << " ";
+				}
+			}
+			cout << endl;
 		}
-		else if (key == 'a')
-		{
-			cout << "Влево!" << endl;
-		}
-		else if (key == 's')
-		{
-			cout << "Назад!" << endl;
-		}
-		else if (key == 'd')
-		{
-			cout << "Вправо!" << endl;
-		}
-		else if (key == 32)
-		{
-			cout << "Прыжок!" << endl;
-		}
-		else if (key == 13)
-		{
-			cout << "Огонь!" << endl;
-		}
-		else if (key == 27)
-		{
-			cout << "Выход!" << endl;
-			break;
-		}
-	} while (true);
+		cout << endl;
+	}
+}
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int size;
+	cout << "Введите размер шахматной доски (количество рядов и столбцов): ";
+	cin >> size;
+
+	ChessBoard::printChessBoard(size);
+
+	return 0;
 }

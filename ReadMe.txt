@@ -4,9 +4,12 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 TODO:
 1. В Solution 'ControlStructures' добавить проект 'ChessBoard' и в нем:
 	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/ChessBoard.jpg
+		Клетки этой шахматной доски нужно вывести при помощи Тернарного оператора.
+		
 2. В Solution 'ControlStructures' добавить проект 'HardChess' и в нем:
 	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/HardChess.jpg
 
+3. Вывести на экран треугольник Паскаля. Глубину треугольника пользователь вводит с клавиатуры;
 
 TODO:
 В Solution 'ControlStructures' добавить проект 'Geometry' и в нем решить следующие задачи:
