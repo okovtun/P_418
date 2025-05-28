@@ -2,6 +2,7 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+0. Выучить теорию по системам контроля версий;
 1. В Solution 'ControlStructures' добавить проект 'ChessBoard' и в нем:
 	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/ChessBoard.jpg
 		Клетки этой шахматной доски нужно вывести при помощи Тернарного оператора.
@@ -10,6 +11,7 @@ TODO:
 	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/HardChess.jpg
 
 3. Вывести на экран треугольник Паскаля. Глубину треугольника пользователь вводит с клавиатуры;
+4. Десятичное число, введенное с клавиатуры перевести в Шестнадцатеричную систему счисления;
 
 TODO:
 В Solution 'ControlStructures' добавить проект 'Geometry' и в нем решить следующие задачи:

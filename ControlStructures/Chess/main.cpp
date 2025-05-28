@@ -7,8 +7,10 @@ using namespace std;
 #define LOWER_RIGHT_ANGLE		(char)217
 #define HORIZONTAL_LINE			(char)196
 #define VERTICAL_LINE			(char)179
-#define WHITE_BOX				(char)219
-#define BLACK_BOX				(char)32
+#define WHITE_BOX				"\xDB\xDB"		//(char)219
+#define BLACK_BOX				"\x20\x20"
+
+//Escape-последовательность '\xXX' позволяет прямо в строке задать символ по ASCII-коду в шестнадцатеричной системе счисления
 
 //#define INTRO
 //#define ASCII
@@ -62,8 +64,9 @@ void main()
 			else
 			{
 				//TODO:
-				if (i % 2 == j % 2)cout << WHITE_BOX << WHITE_BOX;
-				else cout << BLACK_BOX << BLACK_BOX;
+				//if (i % 2 == j % 2)cout << WHITE_BOX << WHITE_BOX;else cout << BLACK_BOX << BLACK_BOX;
+				//(i % 2 == j % 2)? cout << WHITE_BOX << WHITE_BOX : cout << BLACK_BOX << BLACK_BOX;
+				cout << (i % 2 == j % 2 ? WHITE_BOX : BLACK_BOX);
 			}
 		}
 		cout << endl;
