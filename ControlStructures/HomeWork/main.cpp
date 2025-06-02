@@ -1,49 +1,27 @@
 #include <iostream>
-using namespace std;
-void main()
-{
-	setlocale(LC_ALL, "");
-	int n;
-	int c;
-	int dif;
-	cout << "Введите высоту для трегуольника: "; cin >> n;
-	for (int i = 0; i < n; i++) // строчки треугольника
-	{
-		for (int j = 0; j < n - i; j++) //пробелы для выравнивания 
-		{
-			cout << "\t";
-		}
-		for (int j = 0; j <= i; j++)//сам треугольник
-		{
-			if (j == 0 || j == i) cout << 1;
-			else
-			{
-				double fact_i = 1;
-				double fact_j = 1;
-				double fact_dif = 1;
-				dif = i - j;
 
-				for (int k = 1; k <= dif; k++)
-				{
-					fact_dif *= k;
-				}
-				for (int k = 1; k <= i; k++)
-				{
-					fact_i *= k;
-				}
-				for (int k = 1; k <= j; k++)
-				{
-					fact_j *= k;
-				}
-				c = fact_i / (fact_j * fact_dif); //формула биномиального коэффициента С(i,j) = i! / (j! * (i-j)!) 
+int main() {
+	setlocale(LC_ALL, "russian");
+	int depth;
 
-				cout << c;
-			}
-			if (j < i)
-			{
-				cout << "\t\t";
-			}
+	std::cout << "Введите глубину треугольника Паскаля: ";
+	std::cin >> depth;
+
+	for (int i = 0; i < depth; ++i) {
+		// Вывод пробелов для выравнивания
+		for (int j = 0; j < depth - i - 1; ++j) {
+			std::cout << " ";
 		}
-		cout << endl;
+
+		// Вычисление и вывод элементов текущей строки
+		int value = 1;
+		for (int j = 0; j <= i; ++j) {
+			std::cout << value << " ";
+
+			// Вычисляем следующий элемент по формуле
+			value = value * (i - j) / (j + 1);
+		}
+		std::cout << std::endl;
 	}
+
 }

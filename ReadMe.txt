@@ -2,6 +2,10 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+1. Выучить теорию по системам контроля версий;
+2. Прислать ссылку на свой GotHub, страница 'Repositories';
+
+DONE:
 0. Выучить теорию по системам контроля версий;
 1. В Solution 'ControlStructures' добавить проект 'ChessBoard' и в нем:
 	https://github.com/okovtun/P_418/blob/master/ControlStructures/Picture/ChessBoard.jpg
