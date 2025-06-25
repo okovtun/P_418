@@ -20,6 +20,7 @@ double Avarage(int arr[], const int n);
 
 void main()
 {
+	cout << typeid('+').name() << endl;
 	setlocale(LC_ALL, "");
 	const int n = 5;
 	int arr[n];
