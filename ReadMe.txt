@@ -2,6 +2,10 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+1. Констпект по указалям - наизусть;
+2. Констпект по массивам - наизусть;
+
+DONE:
 1. Выучить теорию по системам счисления:
 	https://github.com/okovtun/P_418/blob/master/NumericSystems.pdf;
 2. Выучить теорию по указателям;
