@@ -2,6 +2,14 @@
 #include<iostream>
 using namespace std;
 
+/*
+-------------------------------------
+1. By value;
+2. By pointer;
+3. By reference;
+-------------------------------------
+*/
+
 void Exchange(int a, int b);
 
 void main()
