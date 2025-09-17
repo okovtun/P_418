@@ -2,6 +2,9 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+Провести тест производительности написанных ранее функций;
+
+DONE:
 В проект 'DynamicMemory' добавить следующие функции:
 	??? push_front(???);	//добавляет значение в начало массива
 	??? insert(???);		//вставляет значение в массив по указанному индексу

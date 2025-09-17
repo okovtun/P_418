@@ -8,6 +8,11 @@ void FillRand(int arr[], const int n);
 void Print(int arr[], const int n);
 
 int* push_back(int arr[], int& n, int value);	//Добавляет значение в конец
+int* push_front(int arr[], int& n, int value);
+int* insert(int arr[], int& n, int value, int index);
+int* pop_back(int arr[], int& n);
+int* pop_front(int arr[], int& n);
+int* erase(int arr[], int& n, int index);
 
 void main()
 {
@@ -34,6 +39,21 @@ void main()
 
 	//7) Mission complete, happy tomorrow:
 	Print(arr, n);
+
+	cout << "Введите добавляемое значение: "; cin >> value;
+	arr = push_front(arr, n, value);
+	Print(arr, n);
+
+	int index;
+	cout << "Введите индекс добавляемого элемента: "; cin >> index;
+	cout << "Введите значение добавляемого элемента: "; cin >> value;
+	arr = insert(arr, n, value, index);
+	Print(arr, n);
+
+	Print(arr = pop_back(arr, n), n);
+	Print(arr = pop_front(arr, n), n);
+	cout << "Введите индекс удаляемого элемента: "; cin >> index;
+	Print(arr = erase(arr,n,index), n);
 
 	///////////////////////////////////////////////////
 	///				(3)Удаление памяти:				///
@@ -86,4 +106,63 @@ int* push_back(int arr[], int& n, int value)
 
 	//7) Mission complete, happy tomorrow:
 	return arr;
+}
+
+int* push_front(int arr[], int& n, int value)
+{
+	int* buffer = new int[n + 1];
+	for (int i = 0; i < n; i++)
+		buffer[i + 1] = arr[i];
+	delete[] arr;
+	buffer[0] = value;
+	n++;
+	return buffer;
+}
+int* insert(int arr[], int& n, int value, int index)
+{
+	if (index > n)return arr;
+	int* buffer = new int[n + 1];
+	/*for (int i = 0; i < index; i++)buffer[i] = arr[i];
+	for (int i = index; i < n; i++)buffer[i + 1] = arr[i];*/
+	for (int i = 0; i < n; i++)
+	{
+		/*if (i < index)
+		{
+			buffer[i] = arr[i];
+		}
+		else
+		{
+			buffer[i + 1] = arr[i];
+		}*/
+		//i < index ? buffer[i] = arr[i] : buffer[i + 1] = arr[i];
+		buffer[i < index ? i : i + 1] = arr[i];
+	}
+	buffer[index] = value;
+
+	delete[] arr;
+	n++;
+	return buffer;
+}
+int* pop_back(int arr[], int& n)
+{
+	int* buffer = new int[--n];
+	for (int i = 0; i < n; i++)buffer[i] = arr[i];
+	delete[] arr;
+	return buffer;
+}
+int* pop_front(int arr[], int& n)
+{
+	int* buffer = new int[--n];
+	for (int i = 0; i < n; i++)buffer[i] = arr[i + 1];
+	delete[] arr;
+	return buffer;
+}
+int* erase(int arr[], int& n, int index)
+{
+	if (index >= n)return arr;
+	int* buffer = new int[--n];
+	for (int i = 0; i < n; i++)
+		buffer[i] = arr[i < index ? i : i + 1];
+	delete[] arr;
+	return buffer;
 }
