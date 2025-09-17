@@ -1,11 +1,16 @@
 ﻿//DynamicMemory
 #include<iostream>
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 #define tab "\t"
 
 void FillRand(int arr[], const int n);
+void FillRand(int** arr, const int ROWS, const int COLS);
+
 void Print(int arr[], const int n);
+void Print(int** arr, const int ROWS, const int COLS);
 
 int* push_back(int arr[], int& n, int value);	//Добавляет значение в конец
 int* push_front(int arr[], int& n, int value);
@@ -14,9 +19,13 @@ int* pop_back(int arr[], int& n);
 int* pop_front(int arr[], int& n);
 int* erase(int arr[], int& n, int index);
 
+//#define DYNAMIC_MEMORY_1
+#define DYNAMIC_MEMORY_2
+
 void main()
 {
 	setlocale(LC_ALL, "");
+#ifdef DYNAMIC_MEMORY_1
 	cout << "DynamicMemory" << endl;
 	int n = 5;
 	cout << "Введите размер массива: "; cin >> n;
@@ -53,14 +62,39 @@ void main()
 	Print(arr = pop_back(arr, n), n);
 	Print(arr = pop_front(arr, n), n);
 	cout << "Введите индекс удаляемого элемента: "; cin >> index;
-	Print(arr = erase(arr,n,index), n);
+	Print(arr = erase(arr, n, index), n);
 
 	///////////////////////////////////////////////////
 	///				(3)Удаление памяти:				///
 	///////////////////////////////////////////////////
 	delete[] arr;
 
-	//Memory leak
+	//Memory leak  
+#endif // DYNAMIC_MEMORY_1
+
+#ifdef DYNAMIC_MEMORY_2
+	int rows;
+	int cols;
+	cout << "Введите количество строк: "; cin >> rows;
+	cout << "Введите количество элементов строки: "; cin >> cols;
+
+	int** arr = new int*[rows];
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols];
+	}
+	FillRand(arr, rows, cols);
+	Print(arr, rows, cols);
+	//2DDA - Two-Dimensional Dynamic Array
+
+	for (int i = 0; i < rows; i++)
+	{
+		delete[] arr[i];
+	}
+	delete[] arr;
+
+#endif // DYNAMIC_MEMORY_2
+
 }
 
 void FillRand(int arr[], const int n)
@@ -71,6 +105,16 @@ void FillRand(int arr[], const int n)
 		arr[i] = rand() % 100;
 	}
 }
+void FillRand(int** arr, const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
 void Print(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -79,6 +123,17 @@ void Print(int arr[], const int n)
 		cout << *(arr + i) << tab;
 	}
 	cout << endl;
+}
+void Print(int** arr, const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
 }
 
 int* push_back(int arr[], int& n, int value)
