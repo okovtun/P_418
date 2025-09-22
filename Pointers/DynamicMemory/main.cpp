@@ -6,7 +6,7 @@ using std::endl;
 
 #define tab "\t"
 
-void FillRand(int arr[], const int n);
+void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(int** arr, const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
@@ -18,6 +18,13 @@ int* insert(int arr[], int& n, int value, int index);
 int* pop_back(int arr[], int& n);
 int* pop_front(int arr[], int& n);
 int* erase(int arr[], int& n, int index);
+
+int** push_row_back(int** arr, int& rows, const int cols);
+int** push_row_front(int** arr, int& rows, const int cols);
+
+int** pop_row_back(int** arr, int& rows, const int cols);
+
+void push_col_back(int** arr, const int rows, int& cols);
 
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
@@ -87,6 +94,19 @@ void main()
 	Print(arr, rows, cols);
 	//2DDA - Two-Dimensional Dynamic Array
 
+	arr = push_row_back(arr, rows, cols);
+	FillRand(arr[rows - 1], cols, 100, 1000);
+	Print(arr, rows, cols);
+
+	arr = push_row_front(arr, rows, cols);
+	FillRand(arr[0], cols, 100, 1000);
+	Print(arr, rows, cols);
+
+	arr = pop_row_back(arr, rows, cols);
+	Print(arr, rows, cols);
+
+
+
 	for (int i = 0; i < rows; i++)
 	{
 		delete[] arr[i];
@@ -97,12 +117,12 @@ void main()
 
 }
 
-void FillRand(int arr[], const int n)
+void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	for (int i = 0; i < n; i++)
 	{
 		//Оператор индексирования (Subscript operator) []:
-		arr[i] = rand() % 100;
+		arr[i] = rand() % (maxRand - minRand) + minRand;
 	}
 }
 void FillRand(int** arr, const int ROWS, const int COLS)
@@ -134,6 +154,7 @@ void Print(int** arr, const int ROWS, const int COLS)
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
 int* push_back(int arr[], int& n, int value)
@@ -220,4 +241,47 @@ int* erase(int arr[], int& n, int index)
 		buffer[i] = arr[i < index ? i : i + 1];
 	delete[] arr;
 	return buffer;
+}
+int** push_row_back(int** arr, int& rows, const int cols)
+{
+	//1) Создаем новый массив указателей:
+	int** buffer = new int*[rows + 1];
+
+	//2) Копируем адреса строк из исходного массива в новый массив указателей:
+	for (int i = 0; i < rows; i++)buffer[i] = arr[i];
+
+	//3) Удаляем исходный массив указателей:
+	delete[] arr;
+
+	//4) Выделяем память под добавляемую строку:
+	buffer[rows] = new int[cols] {};
+
+	//5) После добавления строки количество строк увелчивается на одну:
+	rows++;
+
+	//6) Вовращаем новый массив указателей:
+	return buffer;
+}
+int** push_row_front(int** arr, int& rows, const int cols)
+{
+	int** buffer = new int*[rows + 1];
+	for (int i = 0; i < rows; i++)buffer[i + 1] = arr[i];
+	delete[] arr;
+	buffer[0] = new int[cols] {};
+	rows++;
+	return buffer;
+}
+
+int** pop_row_back(int** arr, int& rows, const int cols)
+{
+	int** buffer = new int*[--rows];
+	for (int i = 0; i < rows; i++)buffer[i] = arr[i];
+	delete[] arr[rows];	//!!! удаляем удаляемую строку !!!
+	delete[] arr;		//удаляем исходный массив указателей
+	return buffer;
+}
+
+void push_col_back(int** arr, const int rows, int& cols)
+{
+
 }
