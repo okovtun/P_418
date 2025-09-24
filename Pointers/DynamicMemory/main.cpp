@@ -6,6 +6,9 @@ using std::endl;
 
 #define tab "\t"
 
+int** Allocate(const int rows, const int cols);
+void Clear(int** arr, const int rows);
+
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(int** arr, const int ROWS, const int COLS);
 
@@ -25,6 +28,7 @@ int** push_row_front(int** arr, int& rows, const int cols);
 int** pop_row_back(int** arr, int& rows, const int cols);
 
 void push_col_back(int** arr, const int rows, int& cols);
+void pop_col_back(int** arr, const int rows, int& cols);
 
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
@@ -85,11 +89,7 @@ void main()
 	cout << "Введите количество строк: "; cin >> rows;
 	cout << "Введите количество элементов строки: "; cin >> cols;
 
-	int** arr = new int*[rows];
-	for (int i = 0; i < rows; i++)
-	{
-		arr[i] = new int[cols];
-	}
+	int** arr = Allocate(rows, cols);
 	FillRand(arr, rows, cols);
 	Print(arr, rows, cols);
 	//2DDA - Two-Dimensional Dynamic Array
@@ -105,16 +105,36 @@ void main()
 	arr = pop_row_back(arr, rows, cols);
 	Print(arr, rows, cols);
 
+	push_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
 
+	pop_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
 
+	Clear(arr, rows);
+
+#endif // DYNAMIC_MEMORY_2
+
+}
+
+int** Allocate(const int rows, const int cols)
+{
+	int** arr = new int*[rows];
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols];
+	}
+	return arr;
+}
+void Clear(int** arr, const int rows)
+{
+	//1) Удаляем строки
 	for (int i = 0; i < rows; i++)
 	{
 		delete[] arr[i];
 	}
+	//2) Удаляем массив указателей:
 	delete[] arr;
-
-#endif // DYNAMIC_MEMORY_2
-
 }
 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -283,5 +303,23 @@ int** pop_row_back(int** arr, int& rows, const int cols)
 
 void push_col_back(int** arr, const int rows, int& cols)
 {
-
+	for (int i = 0; i < rows; i++)
+	{
+		int* buffer = new int[cols + 1]{};
+		for (int j = 0; j < cols; j++)buffer[j] = arr[i][j];
+		delete[] arr[i];
+		arr[i] = buffer;
+	}
+	cols++;
+}
+void pop_col_back(int** arr, const int rows, int& cols)
+{
+	cols--;
+	for (int i = 0; i < rows; i++)
+	{
+		int* buffer = new int[cols];
+		for (int j = 0; j < cols; j++)buffer[j] = arr[i][j];
+		delete[] arr[i];
+		arr[i] = buffer;
+	}
 }
