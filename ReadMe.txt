@@ -2,6 +2,11 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIMOOtQKRjb1MLc31Bh7a_Hc
 
 TODO:
+1. От ветки 'DynamicTemplates' создать ветку 'DynamicOptimisation', и в ней
+   оптимизировать написанный ранее код;
+2. Выучить теорию!!!
+
+DONE:
 1. !!!!!!!!!!!!!!!! Добиваем все функции из предыдущего задания !!!!!!!!!!!!!!!
 2. !!!!!!!!!!!!!!!! Делаем COMMIT: DynamicMemory 2D DONE		!!!!!!!!!!!!!!!
 3. !!!!!!!!!!!!!!!! Создаем ветку 'DynamicTemplates'			!!!!!!!!!!!!!!!
